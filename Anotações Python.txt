@@ -1,0 +1,35 @@
+PRECEDÊNCIA:
+1. (n + n)
+2. **
+3. * / // %
+4. + -
+
+-   -   -   -   -   -   -   -   -   -   
+
+A soma de duas strings é = concatencao
+
+-   -   -   -   -   -   -   -   -   -   
+
+Formatação de strings:
+
+* f strings
+* format
+* interpolação
+
+-   -   -   -   -   -   -   -   -   -   
+
+Função len(contagem):
+
+variavel = 'Olá mundo'
+print(len(variavel))
+
+-   -   -   -   -   -   -   -   -   -   
+
+Fatiamento:
+
+[i:f:p] [::]
+variavel = 'Olá mundo'
+print(variavel[0:9:2])
+
+-   -   -   -   -   -   -   -   -   -   
+
