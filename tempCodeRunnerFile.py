@@ -1,6 +1,4 @@
-ano = int(input("Informe o ano: "))
-
-if (ano % 4 == 0 and ano % 100 != 0) or (ano % 400 == 0):
-    print("O ano é Bissexto!")
-else:
-    print("O ano NÃO é bissexto!")
+    print(f"Serão sacadas {cinquenta} notas de R$ 50,00 \n")
+    print(f"Serão sacadas {vinte} notas de R$ 20,00 \n")
+    print(f"Serão sacadas {dez} notas de R$ 10,00 \n")
+    print(f"Serão sacadas {um} notas de R$ 1,00 \n")
