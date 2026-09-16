@@ -18,33 +18,30 @@ Informe a opção desejada:
 (1) SOMA
 (2) SUBTRACAO
 (3) MULTIPLICACAO
-(4) DIVISAO"""))
+(4) DIVISAO\n"""))
 
 match opcao:
     case 1:
         calc = somar(n1,n2)
+        nome_operacao = "somar"
         
     case 2:
         calc = subtrair(n1,n2)
+        nome_operacao = "subtrair"
 
     case 3:
         calc = multiplicacao(n1,n2)
+        nome_operacao = "multiplicacao"
 
     case 4:
-        calc = divisao(n1,n2)
+        if n2 == 0:
+            print("Não é possível dividir por zero")
+        else:
+            calc = divisao(n1,n2)
+            nome_operacao = "divisao"
 
-if opcao == 1:
-    print(f"A operação de soma é: {calc}")
+    case _:
+        print("Operação inválida")
 
-elif opcao == 2:
-    print(f"A operação de subtracao é: {calc}")
-
-elif opcao == 3:
-    print(f"A operação de multiplicacao é: {calc}")
-
-elif opcao == 4:
-    print(f"A operação de divisao é: {calc}")
-
-else:
-    print("Operação inválida!")
-    calc = None
+if opcao in (1,2,3) or (opcao == 4 and n2 != 0):
+    print(f"O resultado da {nome_operacao} é: {calc}")
