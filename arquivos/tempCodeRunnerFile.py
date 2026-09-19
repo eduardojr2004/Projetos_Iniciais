@@ -1,0 +1,1 @@
+caminho_origem = os.path.join(origem, arquivo)
