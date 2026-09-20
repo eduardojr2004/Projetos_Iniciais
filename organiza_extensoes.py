@@ -1,41 +1,30 @@
 import os
 import shutil
 
-diretorio = r"E:\Meu Drive\Pessoal\Programacao\GitHub\Projetos_Iniciais\Diversos"
-
-pasta_destino = {
-    "imagens": os.path.join(diretorio, "Imagens"),
-    "audios": os.path.join(diretorio, "Audios"),
-    "documentos": os.path.join(diretorio, "Documentos"),
-    "videos": os.path.join(diretorio, "Videos"),
-    "outros": os.path.join(diretorio, "Outros"),
-}
-
-for pasta in pasta_destino:
-    os.makedirs(pasta, exist_ok= True)
+caminho = r"E:\Meu Drive\Pessoal\Programacao\GitHub\Projetos_Iniciais\Diversos"
 
 
-extensoes_imagens = {
+extensoes_imagens = (
     ".jpg",
     ".jpeg",
     ".png",
     ".gif",
     ".bmp",
     ".webp"
-}
+)
 
 # Extensões consideradas como áudios
-extensoes_audios = {
+extensoes_audios = (
     ".mp3",
     ".wav",
     ".ogg",
     ".m4a",
     ".wma",
     ".flac"
-}
+)
 
 # Extensões consideradas como documentos
-extensoes_documentos = {
+extensoes_documentos = (
     ".pdf",
     ".doc",
     ".docx",
@@ -45,41 +34,64 @@ extensoes_documentos = {
     ".ppt",
     ".pptx",
     ".csv"
-}
+)
 
 # Extensões consideradas como vídeos
-extensoes_videos = {
+extensoes_videos = (
     ".mp4",
     ".avi",
     ".mkv",
     ".mov",
     ".wmv",
     ".webm"
+)
+
+#CAMINHO DAS PASTAS
+diretorios_arquivos = {
+    "DIR_IMAGENS": os.path.join(caminho,"Imagens"),
+    "DIR_AUDIOS" : os.path.join(caminho, "Audios"),
+    "DIR_DOCUMENTOS" : os.path.join(caminho, "Documentos"),
+    "DIR_VIDEOS" : os.path.join(caminho, "Vídeos"),
+    "DIR_OUTROS" : os.path.join(caminho, "Outros")
 }
 
+#VERIFICA SE AS PASTAS EXISTEM, SE NÃO EXISTIR CRIA
+for diretorio in diretorios_arquivos.values():
+    if not os.path.isdir(diretorio):
+        os.makedirs(diretorio, exist_ok=True)
 
-for arquivo in os.listdir(diretorio):
 
-    caminho_arquivo = os.path.join(diretorio, arquivo)
+#ARQUIVOS RECEBE TODO CONTEÚDO DO CAMINHO
+arquivos = os.listdir(caminho)
 
-    if not os.path.isfile(caminho_arquivo):
+
+#RECEBE E ANALISA CADA ITEM DO CAMINHO
+for arquivo in arquivos:
+
+    local_arquivo = os.path.join(caminho, arquivo)
+
+    if os.path.isdir(local_arquivo):
         continue
 
-    extensao = os.path.splitext(arquivo)[1].lower()
+    # Converte o nome do arquivo para letras minúsculas
+    # Isso permite reconhecer arquivos como FOTO.JPG ou musica.MP3
+    nome_arquivo = arquivo.lower()        
 
-    if extensao in extensoes_imagens:
-        destino = pasta_destino["imagens"]
+    if nome_arquivo.endswith(extensoes_imagens):
+        destino = diretorios_arquivos["DIR_IMAGENS"]
 
-    elif extensao in extensoes_audios:
-        destino = pasta_destino["audios"]
+    elif nome_arquivo.endswith(extensoes_audios):
+        destino = diretorios_arquivos["DIR_AUDIOS"]
 
-    elif extensao in extensoes_documentos:
-        destino = pasta_destino["documentos"]
+    elif nome_arquivo.endswith(extensoes_documentos):
+        destino = diretorios_arquivos["DIR_DOCUMENTOS"]
 
-    elif extensao in extensoes_videos:
-        destino = pasta_destino["videos"]
+    elif nome_arquivo.endswith(extensoes_videos):
+        destino = diretorios_arquivos["DIR_VIDEOS"]
 
     else:
-        destino = pasta_destino["outros"]
+        destino = diretorios_arquivos["DIR_OUTROS"]
 
-    shutil.move(caminho_arquivo, destino)
+    shutil.move(local_arquivo, destino)
+
+print("Arquivo(s) movidos!")
