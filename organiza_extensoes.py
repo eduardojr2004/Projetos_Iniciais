@@ -82,4 +82,4 @@ for arquivo in os.listdir(diretorio):
     else:
         destino = pasta_destino["outros"]
 
-shutil.move(caminho_arquivo, destino)
+    shutil.move(caminho_arquivo, destino)
