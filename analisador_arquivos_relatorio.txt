@@ -1,0 +1,3 @@
+Quantidade de linhas: 15
+Quantidade de palavras: 55
+Maior linha: mesmo quando a estrada é longa,

@@ -1,0 +1,4 @@
+me de um exemplo de um [DICIONARIO] com 3 itens, em seguida liste por último linhas com exemplos de manipulação desse mesmo [DICIONARIO] comentando dentro do próprio código
+
+descreva a função [STRIP] com exemplos, em seguida liste por último linhas com exemplos ou variações de manipulação comentando dentro do próprio código
+
